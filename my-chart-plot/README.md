@@ -6,7 +6,7 @@
 - [Installation](#installation)
 - [What's included](#whats-included)
 - [Documentation](#documentation)
-- [Creators](#creators)
+- [Creator](#creator)
 <!-- * [Community](#community) -->
 
 ## ✨ Tecnologys
@@ -52,8 +52,8 @@ my-chart-plot
 
 - [Raster Docs](https://docs.google.com/document/d/1oAxzut9mfTy67DNKmobG7sj85C_VLCjFOhYQ5m7aYXg/edit)
 
-## Creators
+## Creator
   
-- [Linkedin](https://www.linkedin.com/in/janio-carvalho-95966016b/)
+- [Janio Carvalho](https://www.linkedin.com/in/janio-carvalho-95966016b/)
 
 
