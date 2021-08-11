@@ -48,7 +48,7 @@ my-chart-plot
 ```
 ## Documentation
 
-- Below is the link to access documentation of raster-web/app, all descriptions of tables and relationships  commenting.
+- Below is the link to access documentation of chart-plot.
 
 - [Chart Plot Docs](https://docs.google.com/document/d/1oAxzut9mfTy67DNKmobG7sj85C_VLCjFOhYQ5m7aYXg/edit)
 
