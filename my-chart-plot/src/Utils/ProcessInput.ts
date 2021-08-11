@@ -4,19 +4,21 @@ import lastIndex from "./lastIndex";
 import getIndexStop from "./getIndexStop";
 import minInterval from "./minInterval";
 
+let chartData: any = [];
+
 /* This function is used when an span event is called for 
 update list of datas removing index that timestamp is out new interval. */
-function updateDatas(newInterval: any, chartData1: any) {
-  for (let i = 0; i < chartData1.length; i++) {
-    if (!timeStampCheck(newInterval, chartData1[i][0])) {
-      chartData1.splice(i, 1);
+function updateDatas(newInterval: any) {
+  for (let i = 0; i < chartData.length; i++) {
+    if (!timeStampCheck(newInterval, chartData[i][0])) {
+      chartData.splice(i, 1);
     }
   }
 }
 
 // This functions is so much important, it is responsible to load data in charData 
 // that is used after to plot in chart.
-function labelAndCategories(sJson: any, group1: any, select1: any, timestamp1: any, chartData1: any) {
+function labelAndCategories(sJson: any, group1: any, select1: any, timestamp1: any) {
   let label = ""; // variable for concatenation between strings of group
   let labelgroup = []; // list for concatenation between strings of group and strings of select
 
@@ -29,7 +31,7 @@ function labelAndCategories(sJson: any, group1: any, select1: any, timestamp1: a
     labelgroup[i] = labelgroup[i].replace(/_/g, " ");
     //dic[labelgroup[i]] = sJson[select1[i]];
     //alert(timestamp1+"_"+labelgroup[i]+"_"+sJson[select1[i]]);
-    chartData1.push([timestamp1, labelgroup[i], sJson[select1[i]]]);
+    chartData.push([timestamp1, labelgroup[i], sJson[select1[i]]]);
   }
 }
 
@@ -37,7 +39,7 @@ function labelAndCategories(sJson: any, group1: any, select1: any, timestamp1: a
 // This function is core of application, here the input is convert to JSON object 
 // and this select, group, type events are detected and store, the function call outher 
 // functions secondary to clear and transform formart of input and output data.
-function preparDataChart(str: any) {
+function handleInput(str: any) {
   // inputArea has of input in formart JSON, then now is possible access as object, ex:  inputArea[0].event;
   let inputArea = formartInputToJson(str);
   
@@ -54,7 +56,6 @@ function preparDataChart(str: any) {
     alert("Error, stop not found!");
   }
 
-  let chartData: any = [];
   let select = inputArea[index].select;
   let group = inputArea[index].group;
   let timeStartAndTimeEnd: any = [];
@@ -71,7 +72,7 @@ function preparDataChart(str: any) {
           // update data
           if (chartData.length > 0) {
             alert("load new datas");
-            updateDatas(timeStartAndTimeEnd, chartData);
+            updateDatas(timeStartAndTimeEnd);
           }
 
         } else {
@@ -87,7 +88,7 @@ function preparDataChart(str: any) {
           // if (i === 2) {
           //   console.log(chartData, 'before')
           // }
-          labelAndCategories(inputArea[i], group, select, inputArea[i].timestamp, chartData);
+          labelAndCategories(inputArea[i], group, select, inputArea[i].timestamp);
           // if (i === 2) {
           //   console.log(chartData, 'after')
           // }
@@ -127,11 +128,11 @@ function preparDataChart(str: any) {
         }
 
         // convert timestamp in date after cut date and get only seconds
-        let t1 = minInterval(timeStartAndTimeEnd[0]);
-        let t2 = minInterval(timeStartAndTimeEnd[1]);
+        let timeInit = minInterval(timeStartAndTimeEnd[0]);
+        let timeFinish = minInterval(timeStartAndTimeEnd[1]);
 
         return {
-          categories: [t1, t2],
+          categories: [timeInit, timeFinish],
           series: list
         };
 
@@ -144,4 +145,4 @@ function preparDataChart(str: any) {
   }
 }
 
-export { preparDataChart }
+export { handleInput }

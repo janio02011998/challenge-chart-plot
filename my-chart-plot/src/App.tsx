@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { preparDataChart } from './Utils/ProcessInput';
+import { handleInput } from './Utils/ProcessInput';
 
 import InputArea from './Components/InputArea';
 import ChartPlot from './Components/Chart';
@@ -22,11 +22,11 @@ function App() {
     if (value === '') {
       alert.error('input is empty!');
     } else {
-      let temp: any = preparDataChart(value);
-      console.log(temp);
-      if (temp !== false) {
-        setCategories(temp.categories);
-        setSeries(temp.series);
+      let data: any = handleInput(value);
+      if (data !== false) {
+        setCategories(data.categories);
+        setSeries(data.series);
+
       }
     }
   }
