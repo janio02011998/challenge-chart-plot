@@ -53,8 +53,6 @@ my-chart-plot
 - [Raster Docs](https://docs.google.com/document/d/1oAxzut9mfTy67DNKmobG7sj85C_VLCjFOhYQ5m7aYXg/edit)
 
 ## Creators
-
-- My name is Jânio Carvalho and was reponsable to coding this work.
   
 - [Linkedin](https://www.linkedin.com/in/janio-carvalho-95966016b/)
 
