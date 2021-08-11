@@ -50,7 +50,7 @@ my-chart-plot
 
 - Below is the link to access documentation of raster-web/app, all descriptions of tables and relationships  commenting.
 
-- [Raster Docs](https://docs.google.com/document/d/1oAxzut9mfTy67DNKmobG7sj85C_VLCjFOhYQ5m7aYXg/edit)
+- [Chart Plot Docs](https://docs.google.com/document/d/1oAxzut9mfTy67DNKmobG7sj85C_VLCjFOhYQ5m7aYXg/edit)
 
 ## Creator
   
